@@ -8,110 +8,231 @@
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         @import url('https://googleapis.com');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .glow-hover:hover {
-            box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.2);
-            border-color: rgba(20, 184, 166, 0.4);
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 100%);
+            -webkit-bg-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-bg {
+            background-image: linear-gradient(rgba(20, 184, 166, 0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(20, 184, 166, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-teal-500 selection:text-slate-950 relative overflow-x-hidden">
+<body class="text-slate-100 antialiased selection:bg-teal-500 selection:text-slate-950 relative overflow-x-hidden grid-bg">
 
-    <!-- Subtle Premium Ambient Background Light -->
-    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-[40%] right-[-10%] w-[45vw] h-[45vw] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <!-- Interactive Particle Background Canvas Container -->
+    <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+    <!-- Radial Decorative Spotlights -->
+    <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-teal-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-[30%] right-[-20%] w-[60vw] h-[60vw] bg-sky-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] left-[10%] w-[50vw] h-[50vw] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none"></div>
 
     <!-- Header Navbar -->
-    <header class="sticky top-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-900/80 transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-slate-900/60">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">SR<span class="text-slate-500 font-normal text-sm mono">.sysadmin</span></span>
-            <nav class="hidden md:flex space-x-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                <a href="#about" class="hover:text-teal-400 transition-colors duration-200">About</a>
-                <a href="#skills" class="hover:text-teal-400 transition-colors duration-200">Architecture</a>
-                <a href="#experience" class="hover:text-teal-400 transition-colors duration-200">Journey</a>
-                <a href="#projects" class="hover:text-teal-400 transition-colors duration-200">Case Studies</a>
+            <span class="text-xl font-black tracking-wider text-gradient">SR<span class="text-slate-500 font-normal text-xs mono">://root</span></span>
+            <nav class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors">Stack</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors">History</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors">Case Studies</a>
             </nav>
-            <a href="#contact" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-full shadow-lg shadow-teal-500/20 transition-all duration-300 transform hover:-translate-y-0.5">Hire Me</a>
+            <a href="#contact" class="px-5 py-2.5 text-xs font-extrabold uppercase tracking-widest text-slate-950 bg-gradient-to-r from-teal-400 to-sky-400 hover:from-teal-300 hover:to-sky-300 rounded-xl shadow-lg shadow-teal-500/10 transition-all duration-300 transform hover:-translate-y-0.5">Contact Me</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="about" class="max-w-5xl mx-auto px-6 py-24 md:py-40 flex flex-col justify-center relative">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-medium tracking-wide w-fit mb-6 mono">
+    <section id="about" class="max-w-5xl mx-auto px-6 py-28 md:py-44 flex flex-col justify-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-500/5 border border-teal-500/10 text-teal-400 text-xs font-semibold tracking-wide w-fit mb-8 mono shadow-sm">
             <span class="flex h-2 w-2 relative">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
             </span>
-            Available Locally in Jubail, KSA
+            SYSTEM STATUS: OPERATIONAL IN JUBAIL, KSA
         </div>
-        <h1 class="text-4xl md:text-7xl font-extrabold text-slate-100 tracking-tight mb-6 leading-tight">
+        <h1 class="text-5xl md:text-8xl font-black text-slate-100 tracking-tighter mb-6 leading-none">
             Saritha Rani
         </h1>
-        <p class="text-base md:text-xl text-slate-400 max-w-3xl mb-10 leading-relaxed font-light">
-            Dedicated <span class="text-slate-200 font-semibold">Linux System Administrator</span> with extensive experience managing high-performance hosting environments. Specialized in orchestrating zero-downtime server migrations, automating complex full-stack scaling, and safeguarding enterprise-level service infrastructure.
+        <h2 class="text-xl md:text-3xl font-extrabold tracking-tight text-slate-400 mb-8">
+            Linux System Administrator & <span class="text-teal-400">Technical Operations Specialist</span>
+        </h2>
+        <p class="text-base md:text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed font-normal">
+            I engineer high-performance hosting clusters, orchestrate complex zero-downtime structural infrastructure data migrations, and defend critical enterprise application environments against delivery failure points.
         </p>
         <div class="flex flex-wrap gap-4">
-            <a href="#contact" class="px-6 py-3.5 text-sm font-semibold bg-slate-900 border border-slate-800 rounded-xl hover:border-teal-500/50 hover:bg-slate-900 text-teal-400 shadow-md shadow-slate-950 transition-all duration-300">Get In Touch</a>
-            <a href="#projects" class="px-6 py-3.5 text-sm font-semibold bg-gradient-to-r from-slate-900 to-slate-950 text-slate-300 border border-slate-800 rounded-xl hover:bg-slate-800/50 transition-all duration-300">Explore Case Studies</a>
+            <a href="#contact" class="px-8 py-4 text-sm font-bold bg-slate-900 border border-slate-800/80 rounded-xl hover:border-teal-500/40 hover:bg-slate-900/60 text-teal-400 shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">Connect Instantly</a>
+            <a href="#projects" class="px-8 py-4 text-sm font-bold bg-gradient-to-r from-slate-900 to-slate-950 text-slate-400 border border-slate-900 rounded-xl hover:text-slate-200 transition-all duration-300">Review Case Studies</a>
         </div>
     </section>
 
-    <!-- Tech Stack / Skills Section -->
-    <section id="skills" class="py-24 bg-slate-900/30 border-y border-slate-900 relative">
+    <!-- Technical Architecture Section -->
+    <section id="skills" class="py-28 bg-slate-950/40 border-y border-slate-900/60 relative z-10">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">01 / Skill Architecture</h2>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-slate-100 mb-12">Core Technical Toolkit</h3>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">// 01. CAPABILITIES</h2>
+                    <h3 class="text-3xl md:text-4xl font-black text-slate-100">Technical Infrastructure Stack</h3>
+                </div>
+                <p class="text-sm text-slate-500 max-w-xs mt-4 md:mt-0 font-light">Comprehensive systems architecture built for high reliability administration metrics.</p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <div class="bg-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-800/80 transition-all duration-300 glow-hover">
-                    <div class="w-12 h-12 bg-gradient-to-br from-teal-500/10 to-teal-500/0 border border-teal-500/20 text-teal-400 text-xl flex items-center justify-center rounded-xl mb-6 shadow-inner"><i class="fa-solid fa-server"></i></div>
-                    <h4 class="text-lg font-bold text-slate-200 mb-3">Linux & Web Servers</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">L1/L2 Admin, CLI Automation, User Control Policies, Cluster Optimization.</p>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] mono text-slate-400">
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">Apache</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">Nginx</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">cPanel/WHM</span>
+                <div class="glass-panel p-8 rounded-2xl hover:border-teal-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-teal-500/5 border border-teal-500/10 text-teal-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-teal-500/10 group-hover:text-teal-300 transition-colors"><i class="fa-solid fa-terminal"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Linux Kernel & Hosting</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">L1/L2 Admin clusters, configuration frameworks, CLI optimization scripts, server node structures.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">cPanel / WHM</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">Apache / Nginx</span>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-800/80 transition-all duration-300 glow-hover">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/10 to-cyan-500/0 border border-cyan-500/20 text-cyan-400 text-xl flex items-center justify-center rounded-xl mb-6 shadow-inner"><i class="fa-solid fa-database"></i></div>
-                    <h4 class="text-lg font-bold text-slate-200 mb-3">Databases & CMS</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Relational schema diagnostics, engine performance tuning, and stack caching structures.</p>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] mono text-slate-400">
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">MySQL</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">MariaDB</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">WordPress</span>
+                <div class="glass-panel p-8 rounded-2xl hover:border-sky-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-sky-500/5 border border-sky-500/10 text-sky-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-sky-500/10 group-hover:text-sky-300 transition-colors"><i class="fa-solid fa-database"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Databases & CMS Engines</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">Relational transaction profiles, memory structure alignments, query load monitoring variables.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">MySQL / MariaDB</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">WordPress Core</span>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-800/80 transition-all duration-300 glow-hover">
-                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500/10 to-indigo-500/0 border border-indigo-500/20 text-indigo-400 text-xl flex items-center justify-center rounded-xl mb-6 shadow-inner"><i class="fa-solid fa-network-wired"></i></div>
-                    <h4 class="text-lg font-bold text-slate-200 mb-3">Networks & Mail</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed mb-4">DNS management, firewall optimization, and enterprise mail route deliverability tracking.</p>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] mono text-slate-400">
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">Exim</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">Dovecot</span>
-                        <span class="bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-md">SSL/DNS</span>
+                <div class="glass-panel p-8 rounded-2xl hover:border-indigo-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-indigo-500/5 border border-indigo-500/10 text-indigo-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-indigo-500/10 group-hover:text-indigo-300 transition-colors"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Protocols & Mail MTA</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">DNS configuration tables, secure connection handshakes, filter tuning logs, package routers.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">Exim / Dovecot</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">SSL / DNS Zone</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Professional Experience Timeline -->
-    <section id="experience" class="max-w-5xl mx-auto px-6 py-24">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">02 / Experience</h2>
-        <h3 class="text-2xl md:text-3xl font-extrabold text-slate-100 mb-16">Professional Journey</h3>
+    <!-- Professional Timeline Section -->
+    <section id="experience" class="max-w-5xl mx-auto px-6 py-28 relative z-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">// 02. EXPERIENCE</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-slate-100 mb-20">Operational Trajectory</h3>
         
-        <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 before:w-px before:bg-slate-800">
-            <!-- Job 1 -->
-            <div class="relative pl-12 group">
-                <div class="absolute left-2 top-1.5 w-4 h-4 bg-slate-950 border-2 border-teal-400 rounded-full group-hover:bg-teal-400 transition-colors duration-300"></div>
-                <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-3">
-                    <h4 class="text-lg font-bold text-slate-200">Support Generalist <span class="text-teal-400 font-medium">@ hosting.com</span> <span class="text-xs text-slate-500 font-normal px-2 py-0.5 rounded bg-slate-900 border border-slate-800 ml-2">Remote</span></h4>
-                    <span class="text-xs font-medium mono text-slate-500 mt-1 md:mt-0">Jan 2025 — Present</span>
+
+        }
+        /* Interactive grid lines background */
+        .grid-bg {
+            background-image: linear-gradient(rgba(20, 184, 166, 0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(20, 184, 166, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="text-slate-100 antialiased selection:bg-teal-500 selection:text-slate-950 relative overflow-x-hidden grid-bg">
+
+    <!-- Interactive Particle Background Canvas Container -->
+    <div id="particles-js" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+    <!-- Radial Decorative Spotlights -->
+    <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-teal-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-[30%] right-[-20%] w-[60vw] h-[60vw] bg-sky-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] left-[10%] w-[50vw] h-[50vw] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Header Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-slate-900/60">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-black tracking-wider text-gradient">SR<span class="text-slate-500 font-normal text-xs mono">://root</span></span>
+            <nav class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors">Stack</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors">History</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors">Case Studies</a>
+            </nav>
+            <a href="#contact" class="px-5 py-2.5 text-xs font-extrabold uppercase tracking-widest text-slate-950 bg-gradient-to-r from-teal-400 to-sky-400 hover:from-teal-300 hover:to-sky-300 rounded-xl shadow-lg shadow-teal-500/10 transition-all duration-300 transform hover:-translate-y-0.5">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="max-w-5xl mx-auto px-6 py-28 md:py-44 flex flex-col justify-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-500/5 border border-teal-500/10 text-teal-400 text-xs font-semibold tracking-wide w-fit mb-8 mono shadow-sm">
+            <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+            </span>
+            SYSTEM STATUS: OPERATIONAL IN JUBAIL, KSA
+        </div>
+        <h1 class="text-5xl md:text-8xl font-black text-slate-100 tracking-tighter mb-6 leading-none">
+            Saritha Rani
+        </h1>
+        <h2 class="text-xl md:text-3xl font-extrabold tracking-tight text-slate-400 mb-8">
+            Linux System Administrator & <span class="text-teal-400">Technical Operations Specialist</span>
+        </h2>
+        <p class="text-base md:text-xl text-slate-400 max-w-3xl mb-12 leading-relaxed font-normal">
+            I engineer high-performance hosting clusters, orchestrate complex zero-downtime structural infrastructure data migrations, and defend critical enterprise application environments against delivery failure points.
+        </p>
+        <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="px-8 py-4 text-sm font-bold bg-slate-900 border border-slate-800/80 rounded-xl hover:border-teal-500/40 hover:bg-slate-900/60 text-teal-400 shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">Connect Instantly</a>
+            <a href="#projects" class="px-8 py-4 text-sm font-bold bg-gradient-to-r from-slate-900 to-slate-950 text-slate-400 border border-slate-900 rounded-xl hover:text-slate-200 transition-all duration-300">Review Case Studies</a>
+        </div>
+    </section>
+
+    <!-- Technical Architecture Section -->
+    <section id="skills" class="py-28 bg-slate-950/40 border-y border-slate-900/60 relative z-10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">// 01. CAPABILITIES</h2>
+                    <h3 class="text-3xl md:text-4xl font-black text-slate-100">Technical Infrastructure Stack</h3>
                 </div>
-                <p class="text-sm text-slate-400 max-w-3xl leading-relaxed">
+                <p class="text-sm text-slate-500 max-w-xs mt-4 md:mt-0 font-light">Comprehensive systems architecture built for high reliability administration metrics.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-teal-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-teal-500/5 border border-teal-500/10 text-teal-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-teal-500/10 group-hover:text-teal-300 transition-colors"><i class="fa-solid fa-terminal"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Linux Kernel & Hosting</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">L1/L2 Admin clusters, configuration frameworks, CLI optimization scripts, server node structures.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">cPanel / WHM</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">Apache / Nginx</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-sky-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-sky-500/5 border border-sky-500/10 text-sky-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-sky-500/10 group-hover:text-sky-300 transition-colors"><i class="fa-solid fa-database"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Databases & CMS Engines</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">Relational transaction profiles, memory structure alignments, query load monitoring variables.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">MySQL / MariaDB</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">WordPress Core</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl hover:border-indigo-500/30 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-indigo-500/5 border border-indigo-500/10 text-indigo-400 text-xl flex items-center justify-center rounded-xl mb-6 group-hover:bg-indigo-500/10 group-hover:text-indigo-300 transition-colors"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4 class="text-lg font-bold text-slate-200 mb-3 group-hover:text-white transition-colors">Protocols & Mail MTA</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6 font-light">DNS configuration tables, secure connection handshakes, filter tuning logs, package routers.</p>
+                    <div class="flex flex-wrap gap-2 text-[10px] mono text-slate-400">
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">Exim / Dovecot</span>
+                        <span class="bg-slate-950/80 border border-slate-800/80 px-2.5 py-1 rounded-md">SSL / DNS Zone</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Timeline Section -->
+    <section id="experience" class="max-w-5xl mx-auto px-6 py-28 relative z-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-teal-400 mb-2 mono">// 02. EXPERIENCE</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-slate-100 mb-20">Operational Trajectory</h3>
+        
